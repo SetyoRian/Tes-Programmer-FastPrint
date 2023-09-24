@@ -1,0 +1,35 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Daftar Produk
+{% endblock  %}
+
+{% block navbar %}
+  <div class="nav">
+    <ul>
+      <li><a href="/" class="nav-link">Beranda</a></li>
+      <li><a href="/products-add" class="nav-link">Tambah Produk</a></li>
+      <li><a href="/products-update" class="nav-link">Perbarui Produk</a></li>
+    </ul>
+  </div>
+{% endblock  %}
+
+{% block content %}
+  <div class="all-products">
+    <h1>Daftar Produk</h1>
+    <table>
+      <tr>
+        <th>Nama Produk</th>
+        <th>Harga</th>
+        <th>Kategori</th>
+      </tr>
+      {% for produk in myproducts %}
+      <tr>
+        <td><a href="details/{{ produk.id_produk }}" style="text-decoration: inherit; color: inherit">{{ produk.nama_produk }}</a></td>
+        <td>{{ produk.harga }}</td>
+        <td>{{ produk.kategori.nama_kategori }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock  %}

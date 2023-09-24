@@ -1,0 +1,16 @@
+{% extends "allProduct.html" %}
+
+{% block  content %}
+  <div class="form-add-product">
+    <h1>Add Product</h1>
+
+    <form method="post" class="form-add">
+      {% csrf_token %}
+      <div class="form-fields">
+        {{ form.as_p }}
+      </div>
+      <button type="submit">Save</button>
+    </form>
+    <a href="{% url "products" %}" class="back-link">Kembali ke Daftar Produk</a>
+  </div>
+{% endblock  %}

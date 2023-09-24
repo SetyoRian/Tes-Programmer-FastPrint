@@ -1,0 +1,23 @@
+{% extends "allProduct.html" %}
+
+{% block  content %}
+  <div class="form-update-product">
+    <h1>Edit Produk</h1>
+    <form method="post" action="{% url "update_product" %}" class="form-update">
+      {% csrf_token %}
+      <div class="form-fields">
+        <label for="product">Pilih Produk yang ingin dirubah</label>
+        <select name="product" id="product">
+          <option value="" disabled selected>Pilih Produk</option>
+          {% for product in products %}
+          <option value="{{ product.id_produk }}">{{ product.nama_produk }}</option>
+          {% endfor %}
+        </select>
+        <p>Masukkan Nama, Harga, Kategori, dan Status Produk Baru</p>
+        {{ form.as_p }}
+      </div>
+      <button type="submit">Perbarui</button>
+    </form>
+    <a href="{% url 'products' %}">Kembali ke Daftar Produk</a>
+  </div>
+{% endblock %}

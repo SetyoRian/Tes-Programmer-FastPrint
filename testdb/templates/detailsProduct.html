@@ -1,0 +1,30 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ myproduct.nama_produk }}
+{% endblock  %}
+
+{% block content %}
+  <div class="detail-product">
+    <h1>{{ myproduct.nama_produk }}</h1>
+
+    <h3>Harga: {{ myproduct.harga }}</h3>
+    <h3>Kategori: {{ myproduct.kategori.nama_kategori }}</h3>
+    <h3>Status: {{ myproduct.status.nama_status }}</h3>
+
+    <button type="submit" class="buton-delete" onclick="confirmDelete()">Hapus</button>
+    <script>
+      function confirmDelete() {
+        if (confirm("Anda yakin menghapus produk ini?")) {
+          document.forms["deleteForm"].submit();
+        }
+      }
+    </script>
+
+    <form method="post" action="/products-delete/{{ myproduct.id_produk }}/" name="deleteForm">
+      {% csrf_token %}
+    </form>
+  
+    <p>Kembali ke daftar <a href="/products">Produk</a></p>
+  </div>
+{% endblock  %}
