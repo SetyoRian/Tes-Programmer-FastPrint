@@ -70,7 +70,7 @@ li {
   text-decoration: none;
 }
 
-.all-products {
+.all-products, .all-products-raw {
   width: 100%;
   margin: 0 auto;
   padding: 1px;
@@ -84,11 +84,13 @@ li {
   background-color: #f5f5f5;
 }
 
-.form-add-product .form-add, .form-update-product .form-update {
+.form-add-product .form-add, 
+.form-update-product .form-update {
   margin-bottom: 20px;
 }
 
-.form-add-product .form-add label, .form-update-product .form-update label {
+.form-add-product .form-add label, 
+.form-update-product .form-update label {
   display: block;
   font-weight: bold;
 }
@@ -98,14 +100,19 @@ li {
   font-weight: bold;
 }
 
-.form-update-product h1, .form-add-product h1, .all-products h1 {
+.form-update-product h1, 
+.form-add-product h1, 
+.all-products h1,
+.all-products-raw h1 {
   margin-top: 70px;
   margin-left: 20px;
 }
 
 .detail-product h3, 
 .detail-product button,
-.detail-product p {
+.detail-product p,
+.all-products p,
+.all-products-raw p {
   margin-left: 20px;
 }
 

@@ -54,5 +54,9 @@ def delete_product(request, productId):
     return redirect('products')
 
 def main(request):
+  myproducts = Produk.objects.select_related('kategori', 'status')
   template = loader.get_template('main.html')
-  return HttpResponse(template.render())
+  context = {
+    'myproducts': myproducts
+  }
+  return HttpResponse(template.render(context, request))

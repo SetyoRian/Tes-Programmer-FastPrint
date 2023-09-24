@@ -5,7 +5,24 @@
 {% endblock  %}
 
 {% block content %}
-  <h1>Tes Junior Programmer</h1>
-  <h3>Django</h3>
-  <p>Cek hasil di link berikut -> <a href="products/">Daftar Produk</a></p>
+  <div class="all-products-raw">
+    <h1>Daftar Semua Produk</h1>
+    <p>Tampilkan Produk Siap Jual -> <a href="products/">Tampilkan</a></p>
+    <table>
+      <tr>
+        <th>Nama Produk</th>
+        <th>Harga</th>
+        <th>Kategori</th>
+        <th>Status</th>
+      </tr>
+      {% for produk in myproducts %}
+      <tr>
+        <td><a href="products/details/{{ produk.id_produk }}" style="text-decoration: inherit; color: inherit">{{ produk.nama_produk }}</a></td>
+        <td>{{ produk.harga }}</td>
+        <td>{{ produk.kategori.nama_kategori }}</td>
+        <td>{{ produk.status.nama_status }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
 {% endblock  %}
