@@ -70,7 +70,9 @@ li {
   text-decoration: none;
 }
 
-.all-products, .all-products-raw {
+.all-products, 
+.all-products-raw,
+.detail-product {
   width: 100%;
   margin: 0 auto;
   padding: 1px;
@@ -103,7 +105,8 @@ li {
 .form-update-product h1, 
 .form-add-product h1, 
 .all-products h1,
-.all-products-raw h1 {
+.all-products-raw h1,
+.detail-product h1 {
   margin-top: 70px;
   margin-left: 20px;
 }

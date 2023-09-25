@@ -47,8 +47,6 @@ def insert_kategori(kategori):
       print(e)
 
   cursor.close()
-  conn.close()
-
 
 def insert_status(status):
   for data in status:
@@ -65,8 +63,6 @@ def insert_status(status):
       print(e)
 
   cursor.close()
-  conn.close()
-
 
 def insert_product(products):
   for data in products:
@@ -100,7 +96,6 @@ def insert_product(products):
       print(e)
 
   cursor.close()
-  conn.close()
 
 if __name__ == "__main__":
   # Connect Database
@@ -116,17 +111,19 @@ if __name__ == "__main__":
   
   dict_product = getProducts()
   arr_data = dict_product['data']
-  state = 3
-  if state == 1:
-    set_kategori = set()
-    for value in arr_data:
-      set_kategori.add(value['kategori'])
-    insert_kategori(set_kategori)
-  elif state == 2:
-    set_status = set()
-    for value in arr_data:
-      set_status.add(value['status'])
-    insert_status(set_status)
-  elif state == 3:
-    insert_product(arr_data)
-  
+  state = 1
+  while state < 4:
+    if state == 1:
+      set_kategori = set()
+      for value in arr_data:
+        set_kategori.add(value['kategori'])
+      insert_kategori(set_kategori)
+    elif state == 2:
+      set_status = set()
+      for value in arr_data:
+        set_status.add(value['status'])
+      insert_status(set_status)
+    elif state == 3:
+      insert_product(arr_data)
+    state += 1
+  conn.close()
